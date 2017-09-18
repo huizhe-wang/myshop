@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"
+	version="2.4">
+	<display-name>information</display-name>
+	<servlet>
+		<servlet-name>ReceiveForm</servlet-name>
+		<servlet-class>assignment3.ReceiveForm</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReceiveForm</servlet-name>
+		<url-pattern>/assignment3/ReceiveForm</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>getPart3</servlet-name>
+		<servlet-class>assignment3.getPart3</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getPart3</servlet-name>
+		<url-pattern>/assignment3/getPart3</url-pattern>
+	</servlet-mapping>
+</web-app>

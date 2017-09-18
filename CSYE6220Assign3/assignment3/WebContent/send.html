@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+
+function years(obj, Cyear) {
+	var len = 134;
+	var selObj = document.getElementById(obj);
+	var selIndex = len - 1;
+	var newOpt;
+	for (i = 1; i <= len; i++) {
+		if (selObj.options.length != len)
+			newOpt = window.document.createElement("OPTION");
+		newOpt.text = Cyear - len + i;
+		newOpt.value = Cyear - len + i;
+		selObj.options.add(newOpt, i);
+	}
+}
+
+function months() {
+	var month = document.getElementById("month");
+	month.length = 0;
+	for (i = 1; i < 13; i++) {
+		month.options.add(new Option(i, i));
+	}
+
+}
+
+function change_date() {
+	var year = document.getElementById("year");
+	var month = document.getElementById("month");
+	var date = document.getElementById("day");
+	vYear = parseInt(year.value);
+	vMonth = parseInt(month.value);
+	date.length = 0;
+	var max = (new Date(vYear, vMonth, 0)).getDate();
+	for (var i = 1; i <= max; i++) {
+		date.options.add(new Option(i, i));
+	}
+}
+</script>
+<head>
+<meta charset="UTF-8">
+<title>Send Information</title>
+</head>
+<body>
+        <form action="/assignment3/ReceiveForm" method="post">
+        please write your information!<br>
+        <br>
+        <table>
+           <tr><td> First Name</td><td><input type=text name=firstname id="firstname"></td></tr>
+            <tr><td> Middle Initial</td><td><input type=text name=middleinitial></td></tr>
+			<tr><td>Last Name</td><td> <input type=text name=lastname></td></tr>
+			<tr><td>Gender</td><td><input type=radio name=gender value=male> male 
+			                       <input type=radio name=gender value=female> female<br></td></tr>
+			<tr><td>Date of Birth</td>
+		    <td>Year
+		    <select onfocus="years('year',new Date().getFullYear()),change_date()" onchange="change_date()" 
+			name="year" id="year">
+			<option value="--"></option>
+			</select> 
+			Month
+			<select onfocus="months(),change_date()" onchange="change_date()" name="month" 
+			id="month">
+			<option value="--"></option>
+			</select> 
+			Day
+			<select name="day" id="day">
+			<option value="--"></option>
+			</select>
+            </td></tr>
+			<tr><td>Address</td><td> <input type=text name=address></td></tr>
+			<tr><td>City</td><td><input type=text name=city></td></tr>
+			<tr><td>State</td><td><input type=text name=state></td></tr>
+			<tr><td>Zip Code</td><td> <input type=text name=zipcode></td></tr>				
+			</table>
+			<input type=submit value=sumbit>
+        </form>
+
+</body>
+</html>
